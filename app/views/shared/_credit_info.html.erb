@@ -1,0 +1,22 @@
+
+<table class="table table-bordered">
+	<tr>
+		<td>
+			Credits you have in pools: <%= @pool_credits %>
+		</td>
+	</tr>
+		<td>
+			Credits in your bank: <%= current_user.credit %>
+		</td>
+	<tr>
+		<td>
+			Total Net Worth: <%= @total_credits %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Pools you are in: <%= current_user.players.count %>
+		</td>
+	</tr>
+
+</table>

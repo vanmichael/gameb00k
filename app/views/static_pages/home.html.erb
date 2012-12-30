@@ -1,0 +1,39 @@
+<% if signed_in? %>
+	<div class="row">
+		<aside class="span3">
+			<section>
+				<%= render 'shared/user_info' %>
+			</section> 
+			<section>
+				<%= render 'shared/stats' %>
+			</section>
+		</aside>
+		<div class="span5">
+			<section>
+				<%= render 'shared/micropost_form' %>
+			</section>
+
+			<section style="width:60%">
+				<%= render 'shared/feed' %>
+			</section>
+		</div>
+
+		<div class="span3">
+			<h3>Credit Feed</h3>
+			<%= render 'shared/credit_info' %>
+			<%= render 'shared/credit_feed' %>
+		</div>
+	</div>
+<% else %>
+	<div class="center-home">
+
+	<div class="sign-up">
+	<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+	</div>
+
+	<div class="user-count">
+	  <%= render 'shared/user_count' %>
+	</div>
+	</div>
+
+<% end %>

@@ -1,0 +1,114 @@
+class CreateAllTables < ActiveRecord::Migration
+  def change
+  	create_table "feedbacks", :force => true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "friendships", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.string   "status"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.datetime "accepted_at"
+  end
+
+  create_table "games", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "updated_at",  :null => false
+    t.integer  "user_id"
+    t.datetime "created_at",  :null => false
+    t.integer  "icon_id"
+    t.date     "date"
+  end
+
+  create_table "icons", :force => true do |t|
+    t.string   "sport_type"
+    t.string   "image"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+    t.string   "name"
+  end
+
+  create_table "microposts", :force => true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "microposts", ["user_id", "created_at"], :name => "index_microposts_on_user_id_and_created_at"
+
+  create_table "players", :force => true do |t|
+    t.integer  "pool_id"
+    t.integer  "user_id"
+    t.integer  "bet_amount"
+    t.boolean  "win",        :default => false
+    t.integer  "winnings"
+    t.integer  "losses"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.integer  "team"
+    t.string   "score"
+  end
+
+  create_table "pools", :force => true do |t|
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.string   "name"
+    t.integer  "credit_limit"
+    t.integer  "max_players"
+    t.integer  "user_credits"
+    t.integer  "user_id"
+    t.integer  "game_id"
+    t.integer  "players_count",  :default => 0
+    t.integer  "credit_counter"
+    t.integer  "game_type"
+  end
+
+  create_table "relationships", :force => true do |t|
+    t.integer  "follower_id"
+    t.integer  "followed_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "relationships", ["followed_id"], :name => "index_relationships_on_followed_id"
+  add_index "relationships", ["follower_id", "followed_id"], :name => "index_relationships_on_follower_id_and_followed_id", :unique => true
+  add_index "relationships", ["follower_id"], :name => "index_relationships_on_follower_id"
+
+  create_table "specs", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "gender"
+    t.date     "birthdate"
+    t.string   "city"
+    t.string   "organization"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "screen_name"
+    t.string   "email"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.string   "password_digest"
+    t.string   "remember_token"
+    t.boolean  "admin",           :default => false
+    t.string   "image"
+    t.integer  "credit",          :default => 0
+    t.string   "first_name"
+    t.string   "last_name"
+  end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
+  end
+end

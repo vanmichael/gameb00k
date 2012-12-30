@@ -20,11 +20,6 @@ test:
 
 production:
   adapter: sqlite3
-  database: gamebkco_gamebook
-  username: gamebkco_van
-  password: arcobaleno
-  host: localhost
-  #adapter: sqlite3
-  #database: db/production.sqlite3
-  #pool: 5
-  #timeout: 5000
+  database: db/production.sqlite3
+  pool: 5
+  timeout: 5000

@@ -39,6 +39,6 @@ group :test do
 end
 
 group :production do
-  gem "mysql", "~> 2.9.0"
+  gem 'pg', '0.12.2'
   gem "passenger", "~> 3.0.18"
 end

@@ -128,7 +128,6 @@ GEM
     method_source (0.8.1)
     mime-types (1.19)
     multi_json (1.5.0)
-    mysql (2.9.0)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
@@ -143,6 +142,7 @@ GEM
       fastthread (>= 1.0.1)
       rack
       rake (>= 0.8.1)
+    pg (0.12.2)
     polyglot (0.3.3)
     pry (0.9.10)
       coderay (~> 1.0.5)
@@ -240,8 +240,8 @@ DEPENDENCIES
   guard-spork (= 0.3.2)
   heroku
   jquery-rails (= 2.0.2)
-  mysql (~> 2.9.0)
   passenger (~> 3.0.18)
+  pg (= 0.12.2)
   rails (= 3.2.8)
   rmagick
   rspec-rails (= 2.11.0)

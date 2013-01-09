@@ -13,4 +13,8 @@ module FriendshipHelper
 			"#{full_name(friend)} is your friend."
 		end
 	end
+
+	# Check if users are friends
+	def friends?(user)
+	end
 end

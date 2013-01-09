@@ -40,5 +40,4 @@ end
 
 group :production do
   gem 'pg', '0.12.2'
-  gem "passenger", "~> 3.0.18"
 end

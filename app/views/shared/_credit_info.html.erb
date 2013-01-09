@@ -1,6 +1,11 @@
 
 <table class="table table-bordered">
 	<tr>
+		<th>
+			Your Name: <%= full_name(current_user) %>
+		</th>
+	</tr>
+	<tr>
 		<td>
 			Credits you have in pools: <%= @pool_credits %>
 		</td>

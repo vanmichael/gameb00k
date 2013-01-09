@@ -1,0 +1,33 @@
+<%# This form is for Joining Pick the Total Score Pool%>
+<% provide(:title, 'Join this Pool') %>
+
+<section>
+<div class="row">
+	<aside class="span4">
+		<table class="table table-bordered">
+		<tr>
+			<th>Join This pool</th>
+		</tr>
+		<tr>
+			<th>
+			<%= form_for([@game, @pool, @player]) do |f| %>
+
+				<%= f.label :score, "Your Total Score Prediction" %>
+				<div class="span3">
+				<%= f.text_field :score %>
+				</div>
+				<%= f.label :bet_amount, "Buy in" %>
+				<div class="span2">
+				<%= f.text_field :bet_amount %>
+				</div>
+				<%= f.submit "Join Pool", class: "btn btn-large btn-primary" %>
+			<% end %> 
+			</th>
+		</tr>
+	</table>
+	</aside>
+	<div class="span4 offset2">
+			<%= render 'shared/credit_info' %>
+	</div>
+</div>
+</section>

@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include UsersHelper
   include ProfileHelper
+  include GamesHelper
 
   #Return true if a parameter corresponding to the given symbol was posted.
   def param_posted?(sym)

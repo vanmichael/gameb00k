@@ -5,7 +5,7 @@
 		<section>
 			<div>
 				<%= show_icon_for @game.icon_id, :thumb   %>
-				<%= @game.name %>
+				<%= game_name(@game) %>
 			</div>
 			<h2> Date of Event:  <%= @game.date %></h2>
 		</section>

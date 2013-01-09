@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121230012714) do
+ActiveRecord::Schema.define(:version => 20130109012120) do
 
   create_table "feedbacks", :force => true do |t|
     t.string   "content"
@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(:version => 20121230012714) do
     t.datetime "created_at",  :null => false
     t.integer  "icon_id"
     t.date     "date"
+    t.string   "team_one"
+    t.string   "team_two"
   end
 
   create_table "icons", :force => true do |t|

@@ -6,7 +6,7 @@
 			<%= show_icon_for credit_item.pool.game.icon_id, :micro %>
 		</th>
 		<th>
-			<span class="content"> <strong>Pool:</strong> <%= link_to credit_item.pool.name, game_pool_path(credit_item.pool.game, credit_item.pool) %></span>
+			<span class="content"> <strong>Pool:</strong> <%= link_to pool_name(credit_item.pool), game_pool_path(credit_item.pool.game, credit_item.pool) %></span>
 		</th>
 	</tr>
 	<tr>

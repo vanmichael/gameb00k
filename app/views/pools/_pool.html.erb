@@ -10,7 +10,7 @@
       <th>Created By:</th>
     </tr>
     <tr>
-      <td> <%= link_to pool.name, game_pool_path(@game, pool) %> </td>
+      <td> <%= link_to pool_name(pool), game_pool_path(@game, pool) %> </td>
       <td><%= pool.max_players %></td>
       <td><%= pool.players_count %></td>
       <td> <%= pool.user_credits %> </td>

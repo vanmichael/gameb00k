@@ -1,60 +1,124 @@
 <% provide(:title, @pool.name) %>
 <h1> <%= @pool.name %> </h1>
-<div class="row">
-	<aside class="span12">
-		<section>
+</br>
+	<div>
 			<div>
-				<h4> Game Prediction: <%= @pool.name %> ! </h4>
+				<h3> Game Type: <%= pool_name(@pool) %> </h3>
 			</div>
-		</section>
-			<table class="table">
-				<tr>
-					<th style="width: 120px;"> Players in Pool: </th>
-					<th> <%= @pool.players_count %> / <%= @pool.max_players %></th>
-					<th style="width: 90px;"> Pool Buy in: </th>
-					<th> <%= @pool.user_credits %></th>
-					<th style="width: 220px"> Credits contributed to this pool: </th>
-					<th> <%= @pool.credit_counter %> / <%= @pool.credit_limit %> </th>
-				</tr>
-			</table>
+		</br>
+			<section class="row">
 
-		<section>
-			<div class="user_avatars">
-				<% if @pool.game_type == 2 %>
-				<% @players.each do |player| %>
-						<%= profile_pic_for player.user, :player %>
-						<%= player.score %>
-				<% end %>
-				<% end %>
-			</div>
+				<aside class="span4">
+					<table class="table table-bordered">
+					<tr>
+						<th> Pool Instructions: <%= pool_instructions(@pool) %>
 
+						</th>
+					</tr>
+					</table>
+				</aside>
+
+				<div class="span5 offset2">
+					<table class="table table-bordered">
+						<tr>
+							<th style="width: 120px;"> Players in Pool: <%= @pool.players_count %> / <%= @pool.max_players %> </th>
+						</tr>
+						<tr>
+							<th style="width: 90px;"> Pool Buy in: <%= @pool.user_credits %></th>
+						</tr>
+						<tr>
+							<th style="width: 220px"> Credits contributed to this pool: <%= @pool.credit_counter %> / <%= @pool.credit_limit %> </th>
+						</tr>
+					</table>
+				</div>
+			</section>
+
+		<section class="row">
+
+			<%# Show Friend Pictures for Teams (Pick The Winner)%>
 			<% if @pool.game_type == 1 %>
-			<div class="user_avatars">
-				<h3>Team One (<%= @pool.name %>)</h3>
-				<% @players.each do |player| %>
-					<% if player.team == 1 %>
-						<%= profile_pic_for player.user, :player %>
+				<div class="span5 team_facepile_1">
+					<h3>Team One (<%= @pool.game.team_one %>)</h3>
+					</br>
+					<% @players.each do |player| %>
+						<% if player.team == 1 %>
+							<div><%= profile_pic_for player.user, :player %></div>
+						<% end %>
 					<% end %>
-				<% end %>
-			</div>
-			<div class="user_avatars">
-				<h3>Team Two</h3>
-				<% @players.each do |player| %>
-					<% if player.team == 2 %>
-						<%= profile_pic_for player.user, :player %>
+				</div>
+				<div class="span1">
+					<h3>vs.</h3>
+				</div>
+				<div class="span5 team_facepile_1">
+					<h3>Team Two (<%= @pool.game.team_two %>)</h3>
+					</br>
+					<% @players.each do |player| %>
+						<% if player.team == 2 %>
+							<div><%= profile_pic_for player.user, :player %></div>
+						<% end %>
 					<% end %>
-				<% end %>
-			</div>
+				</div>
 			<% end %>
+
+			<%# Show Friend Pics for Closest Score %>
+				<% if @pool.game_type == 2 %>
+					<h3>Players:</h3>
+					</br>
+					<div class="span12 closest_facepile_2">
+						<% @players.each do |player| %>
+									<table>
+									<tr>
+										<td>
+										<%= profile_pic_for player.user, :player %>
+										</td>
+									</tr>
+									<tr>
+										<td>
+										<%= player.score %>
+										</td>
+									</tr>
+									</table>
+						<% end %>
+					</div>
+				<% end %>
+
+			<%# Show Friend Pics for Total Score %>
+				<% if @pool.game_type == 3 %>
+					<h3>Players:</h3>
+					</br>
+					<div class="span12 closest_facepile_2">
+						<% @players.each do |player| %>
+									<table>
+									<tr>
+										<td>
+										<%= profile_pic_for player.user, :player %>
+										</td>
+									</tr>
+									<tr>
+										<td>
+										<%= player.score %>
+										</td>
+									</tr>
+									</table>
+						<% end %>
+					</div>
+				<% end %>
 		</section>
+
+	</br>
+
+		<%# Show render join_forms to join specific type of pool %>
 		<section>
 			<% if @pool.game_type == 1 %>
-				<%= render 'shared/join_form' %>
+				<%= render 'shared/join_pick_winner_form' %>
 			<% end %>
 
 			<% if @pool.game_type == 2 %>
-				<%= render 'shared/join_score_form' %>
+				<%= render 'shared/join_closest_score_form' %>
+			<% end %>
+
+			<% if @pool.game_type == 3 %>
+				<%= render 'shared/join_total_score_form' %>
 			<% end %>
 		</section>
-	</aside>
-</div>
+	</div>

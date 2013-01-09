@@ -283,4 +283,35 @@ aside {
   table-layout: fixed
 }
 
+/* facepile */
+
+.team_facepile_1 {
+  div {
+    display: inline-block;
+    width: 70px;
+    height: 50px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  img {
+    max-height: 100%;
+    max-width: 100%;
+  }
+}
+
+.closest_facepile_2 {
+   table {
+    display: inline-block;
+    width: 70px;
+    height: 50px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  img {
+    max-height: 100%;
+    max-width: 100%;
+  }
+}
 

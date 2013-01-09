@@ -1,0 +1,39 @@
+<%# This form is for Joining Pick The Winner Pool %>
+<% provide(:title, 'Join this Pool') %>
+
+<section>
+
+<div class="row">
+	<aside class="span4">
+		<table class="table table-bordered">
+		<tr>
+			<th>Join this pool</th>
+		</tr>
+		<tr>
+			<th>
+			<%= form_for([@game, @pool, @player]) do |f| %>
+
+				<%= f.label :team, "Team 1 or Team 2" %>
+				<div class="span3">
+				<%= f.select(:team, options_for_select([
+						["#{@game.team_one}", '1'], 
+						["#{@game.team_two}", '2']
+						])) %>
+				</div>
+
+				<%= f.label :bet_amount, "Buy in" %>
+
+				<div class="span2">
+				<%= f.text_field :bet_amount %>
+				</div>
+				<%= f.submit "Join Pool", class: "btn btn-large btn-primary" %>
+			</th>
+		</tr>
+		<% end %> 
+		</table>
+	</aside>
+	<div class="span4 offset2">
+			<%= render 'shared/credit_info' %>
+	</div>
+</div>
+</section>

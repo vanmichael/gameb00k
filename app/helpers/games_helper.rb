@@ -19,4 +19,8 @@ module GamesHelper
 	def current_game?(game)
 		game == current_game
 	end
+
+	def game_name(game)
+		game.team_one + " " + "vs." + " " + game.team_two
+	end
 end

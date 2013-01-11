@@ -1,5 +1,5 @@
 class Player < ActiveRecord::Base
-  attr_accessible :pool_id, :bet_amount, :user_id, :team, :score
+  attr_accessible :pool_id, :bet_amount, :user_id, :team, :team1_score, :team2_score
   belongs_to :pool
   belongs_to :user
 

@@ -12,10 +12,12 @@
 			<th>
 			<%= form_for([@game, @pool, @player]) do |f| %>
 
-				<%= f.label :score, "Your Score Prediction" %>
-				<div class="span3">
-				<%= f.text_field :score %>
-				</div>
+				<%= f.label :team1_score, "Your Score Prediction for #{@game.team_one}" %>
+				<%= f.text_field :team1_score %>
+
+				<%= f.label :team2_score, "Your Score Prediction for #{@game.team_two}" %>
+				<%= f.text_field :team2_score %>
+
 				<%= f.label :bet_amount, "Buy in" %>
 				<div class="span2">
 				<%= f.text_field :bet_amount %>

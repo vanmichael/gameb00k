@@ -1,5 +1,5 @@
 class Game < ActiveRecord::Base
-  attr_accessible :description, :name, :date, :icon_id, :pool_id, :game_id, :team_one, :team_two
+  attr_accessible :description, :name, :date, :icon_id, :pool_id, :game_id, :team_one, :team_two, :actual_team1_score, :actual_team2_score, :winning_team
   belongs_to :user
   has_many :users, :through => :pools
   has_many :pools 

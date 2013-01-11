@@ -5,6 +5,19 @@
 		<div class="span6 offset3">
 			<%= form_for(@game) do |f| %>
 
+
+				<%= f.label :actual_team1_score %>
+				<%= f.text_field :actual_team1_score %>
+
+				<%= f.label :actual_team2_score %>
+				<%= f.text_field :actual_team2_score %>
+
+				<%= f.label :winning_team %>
+				<%= f.select(:description, options_for_select([
+										["#{@game.team_one}", '1'],
+										["#{@game.team_two}", '2']
+										])) %>
+
 				<%= f.label :team_one %>
 				<%= f.text_field :team_one %>
 
@@ -26,7 +39,7 @@
 				<%= f.text_field :icon_id %>
 				<div>
 						<% @icons.each do |i| %>
-						<%= show_images i, :thumb %>
+						<%= show_image i, :thumb %>
 						<% end %>
 				</div>
 

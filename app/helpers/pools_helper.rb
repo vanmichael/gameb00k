@@ -32,4 +32,8 @@ module PoolsHelper
 			"Predict the sum of the two teams' scores. Total drops go the single winner."
 		end	
 	end
+
+	def predicted_score(player)
+		player.team1_score.to_s + "-" + player.team2_score.to_s
+	end
 end

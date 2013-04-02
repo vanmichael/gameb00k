@@ -1,6 +1,33 @@
 <% provide(:title, 'About Us') %>
 <h1>About Us</h1>
-<p>
-	The <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a> is a project to make a book and screencasts to teach web development with
-	<a href="http://rubyonrails.org">Ruby on Rails</a>. This is the sample application for the tutorial.
-</p>
+
+<div class="row">
+	<div>
+		<%= image_tag("Gamebook.jpg") %>
+	</div>
+</div>
+
+</br>
+
+<div class="row">
+	<div class="cd span4">
+		<p id="consumer_description">
+			Reward points are earned when making purchases at collaborating shops and restauraunts. 
+		</p>
+		<%= image_tag("coins.png") %>
+	</div>
+
+	<div class="span4">
+		<p id="gamebook_description">
+			From placing wagers on the Yankees game to American Idol, the gaming platform allows you to wager your reward points against your friends in pools created by you around the outcome of sports games and television shows.
+		</p>
+		<%= image_tag("coin.png") %>
+	</div>
+
+	<div class="span4">
+		<p id="prize_description">
+			These reward points earned from shopping or through winning them from your friends are exchangeable for non-monetary prizes from airline tickets, to smartphones, to concert tickets.
+		</p>
+		<%= image_tag("coins.png") %>
+	</div>
+</div>

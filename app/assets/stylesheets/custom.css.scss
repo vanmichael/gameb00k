@@ -3,6 +3,7 @@
 /* mixins, variables, etc. */
 
 $grayMediumLight: #eaeaea;
+$grey: #333333 ;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -317,15 +318,59 @@ aside {
 
 /* About */
 
+#gamebook_banner {
+border:solid 5px $grey;
+-moz-border-radius: 15px;
+border-radius: 15px;
+}
+
 #consumer_description {
+border:solid 5px $grey;
+-moz-border-radius: 15px;
+border-radius: 15px;
 height:120px;
+background-color:#F8F8F8;
+padding:5px;
+}
+
+#consumer_description:hover
+{
+background-color:#FFFF99;
 }
 
 #gamebook_description {
+border:solid 5px $grey;
+-moz-border-radius: 15px;
+border-radius: 15px;
 height:120px;
+background-color:#F8F8F8;
+padding:5px;
+}
+
+#gamebook_description:hover
+{
+background-color:#FFFF99;
 }
 
 #prize_description {
+border:solid 5px $grey;
+-moz-border-radius: 15px;
+border-radius: 15px;
 height:120px;
+background-color:#F8F8F8;
+padding:5px;
+}
+
+#prize_description:hover
+{
+background-color:#FFFF99;
+}
+
+.coin_box {
+margin-left:20px;
+border:solid 5px $grey;
+-moz-border-radius: 15px;
+border-radius: 15px;
+background-color:#FFFF99;
 }
 
